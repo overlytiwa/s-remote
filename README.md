@@ -1,47 +1,30 @@
 # S-Remote
 
-A compact Windows desktop remote control for Samsung Smart TVs, built with WPF and .NET 8.
+S-Remote is a lightweight virtual remote control for your Samsung Smart TV that runs right from your Windows desktop.
 
-## Features
+## How to Set It Up
 
-- **Samsung TV Control**: Connects via WebSocket to control modern Samsung Smart TVs (power, volume, navigation, playback, and home).
-- **Auto-Discovery**: Discovers compatible Samsung TVs on the local network via SSDP / UPnP.
-- **Wake-on-LAN**: Supports powering on compatible TVs over the local network via WoL magic packets.
-- **System Tray Integration**: Minimize or close to the system tray to keep the remote quickly accessible without cluttering the taskbar.
-- **Clean Vector UI**: Dark theme styled with custom Lucide-based vector icon paths.
+1. **Connect to the same Wi-Fi**: Make sure your PC and your Samsung TV are connected to the same home Wi-Fi or local network.
+2. **Open S-Remote**: Run the app on your computer.
+3. **Select your TV**: Click the TV selector at the top to discover and pick your TV from the list. If it does not appear automatically, you can enter your TV's IP address manually.
+4. **Allow access on your TV**: The first time you connect, a prompt will appear on your TV screen asking to allow the connection. Select **Allow** using your physical remote.
+
+Once paired, you can control your TV directly from your PC.
+
+## Using the Remote
+
+- **Power**: Turn your TV off, or turn it back on using Wake-on-LAN.
+- **Direction Pad and OK**: Navigate menus and select items.
+- **Volume**: Turn volume up, down, or mute.
+- **Media Controls**: Play, pause, go back, or return to the TV Home screen.
+- **System Tray**: Closing the window minimizes the remote to the system tray near your Windows clock. Double-click the tray icon to bring it back anytime.
 
 ## Requirements
 
-- Windows 10 or 11 (x64)
-- .NET 8 Desktop Runtime or .NET 8 SDK
-
-## Running from Source
-
-Clone the repository and run using the .NET CLI:
-
-```powershell
-dotnet run --project .\SamsungMiniRemote.csproj
-```
-
-Or execute `Run.cmd`.
-
-## Building a Release
-
-To publish a standalone release package:
-
-```powershell
-dotnet publish SamsungMiniRemote.csproj -c Release -r win-x64 --self-contained false -o publish
-```
-
-Or run `Build-Release.cmd`. The compiled executable will be placed in the `publish\` directory.
-
-## Installer
-
-The project includes an Inno Setup script (`build.iss`) to generate a Windows installer:
-
-1. Build the release output into `publish\`.
-2. Open `build.iss` in Inno Setup and compile.
+- Windows 10 or Windows 11.
+- A Samsung Smart TV (2016 or newer with network remote enabled).
+- Both devices must be on the same local network.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE). Third-party license notices are documented in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+This project is open-source under the [MIT License](LICENSE).
