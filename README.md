@@ -1,39 +1,47 @@
-# Samsung Mini Remote
+# S-Remote
 
-A compact **Windows WPF / .NET 8** desktop shell inspired by the supplied Samsung remote screenshot.
+A compact Windows desktop remote control for Samsung Smart TVs, built with WPF and .NET 8.
 
-## Included
+## Features
 
-- Compact vertical, dark, rounded remote, placed at the **bottom-right** of the Windows work area at launch.
-- Title bar with **minimize** and **close**.
-- Close button / Alt+F4 **hide the window to the system tray** (do not exit).
-- Double-click tray icon or right-click → **Open remote** to bring it back.
-- Right-click tray icon → **Exit** to actually quit.
-- Mute, Choose a TV, Power, 5-way D-pad/OK, **Volume Down/Up** rocker, Play/Pause, Back, and Source buttons.
-- Icons rendered as **actual Lucide-style vector paths**, not emoji, Unicode characters, or an icon font.
-- Buttons are **UI-only placeholders**; no Samsung TV / network functionality implemented yet.
+- **Samsung TV Control**: Connects via WebSocket to control modern Samsung Smart TVs (power, volume, navigation, playback, and home).
+- **Auto-Discovery**: Discovers compatible Samsung TVs on the local network via SSDP / UPnP.
+- **Wake-on-LAN**: Supports powering on compatible TVs over the local network via WoL magic packets.
+- **System Tray Integration**: Minimize or close to the system tray to keep the remote quickly accessible without cluttering the taskbar.
+- **Clean Vector UI**: Dark theme styled with custom Lucide-based vector icon paths.
 
-## Run on Windows
+## Requirements
 
-Install the **.NET 8 SDK** (Windows Desktop workload comes with the SDK), then open PowerShell in this folder:
+- Windows 10 or 11 (x64)
+- .NET 8 Desktop Runtime or .NET 8 SDK
+
+## Running from Source
+
+Clone the repository and run using the .NET CLI:
 
 ```powershell
 dotnet run --project .\SamsungMiniRemote.csproj
 ```
 
-## Build release
+Or execute `Run.cmd`.
+
+## Building a Release
+
+To publish a standalone release package:
 
 ```powershell
-dotnet publish .\SamsungMiniRemote.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true
+dotnet publish SamsungMiniRemote.csproj -c Release -r win-x64 --self-contained false -o publish
 ```
 
-The `.exe` is in `bin\Release\net8.0-windows\win-x64\publish\`.
-Keep its `Assets` subfolder beside the executable for the tray icon.
+Or run `Build-Release.cmd`. The compiled executable will be placed in the `publish\` directory.
 
-## Notes
+## Installer
 
-- Windows-only WPF project. Requires Windows 10 or 11 to run.
-- Change initial window size in `MainWindow.xaml`.
-- Positioning is in `MainWindow.xaml.cs`.
-- App lifecycle and system tray logic are in `App.xaml.cs`.
-- Some anti-virus tools may analyze a newly compiled unsigned desktop executable; no network code exists in this UI-only project.
+The project includes an Inno Setup script (`build.iss`) to generate a Windows installer:
+
+1. Build the release output into `publish\`.
+2. Open `build.iss` in Inno Setup and compile.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE). Third-party license notices are documented in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
