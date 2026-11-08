@@ -6,7 +6,7 @@ S-Remote is a lightweight virtual remote control for your Samsung Smart TV that 
 
 1. **Connect to the same Wi-Fi**: Make sure your PC and your Samsung TV are connected to the same home Wi-Fi or local network.
 2. **Open S-Remote**: Run the app on your computer.
-3. **Select your TV**: Click the TV selector at the top to discover and pick your TV from the list. If it does not appear automatically, you can enter your TV's IP address manually.
+3. **Select your TV**: Click the TV selector at the top to discover and pick your TV from the list. 
 4. **Allow access on your TV**: The first time you connect, a prompt will appear on your TV screen asking to allow the connection. Select **Allow** using your physical remote.
 
 Once paired, you can control your TV directly from your PC.
@@ -17,7 +17,6 @@ Once paired, you can control your TV directly from your PC.
 - **Direction Pad and OK**: Navigate menus and select items.
 - **Volume**: Turn volume up, down, or mute.
 - **Media Controls**: Play, pause, go back, or return to the TV Home screen.
-- **System Tray**: Closing the window minimizes the remote to the system tray near your Windows clock. Double-click the tray icon to bring it back anytime.
 
 ## Requirements
 
